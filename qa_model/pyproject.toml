@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "qa-model"
+version = "0.1.0"
+description = ""
+authors = ["victor.tomita <victor.tomita@birdie.ai>"]
+readme = "README.md"
+packages = [{include = "qa_model"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
