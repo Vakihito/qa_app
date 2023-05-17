@@ -1,0 +1,34 @@
+#!/bin/bash
+# This script is executed to perform common tasks for all users
+
+# return error if have more than 1 argument or 0 
+# available tasks: consumer, search, test, format and template
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 [front|back|model]"    
+    exit 1
+fi
+
+# perform switch case for the argument
+case $1 in
+    front)
+        echo "cd client && yarn start"
+        cd client
+        yarn start
+        ;;
+    back)
+        echo "cd flask-server/ && source venv/bin/activate && python3 server.py"
+        cd flask-server/
+        source venv/bin/activate
+        python3 server.py
+        ;;
+    model)
+        echo "cd qa_model/ && source .venv/bin/activate && bentoml serve service:svc --port=8000"
+        cd qa_model/
+        source .venv/bin/activate
+        bentoml serve service:svc --port=8000
+        ;;
+    *)
+        echo "Usage: $0 [front|back|model]"
+        exit 1
+        ;;
+esac
