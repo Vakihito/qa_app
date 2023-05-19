@@ -46,11 +46,13 @@ function App() {
         <br />
         <input type="submit" value="Submit" />
       </form>
-      <p className='label_text' >Predicted Answer</p>
+        <p className='label_text' >Predicted Answer</p>
       <br />
-      <p className='input_answer' >{answer}</p>
+      <div className='input_answer'>
+      <p  >{answer}</p>
+      </div>
       <br />
-      <p>Score: {prob}</p>
+      <p  className='score_ans'>Score: {prob}</p>
     </div>
   );
 }

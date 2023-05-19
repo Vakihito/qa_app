@@ -1,5 +1,5 @@
 body {
-  margin-top: 1vw;
+  margin-top: 2vw;
   margin-bottom: 0;
   text-align: left;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #E6E6E6;
+  background-color: #181A1B;
 }
 
 code {
@@ -16,6 +16,7 @@ code {
 }
 
 .label_text {
+  color: white;
   text-align: left;
   margin-left: 5%;
   float: left;
@@ -24,9 +25,11 @@ code {
 
 .input_question {
   height: 8vw;
+  font-size: 15px;
 }
 .input_context{
   height: 15vw;
+  font-size: 15px;
 }
 textarea, select {
   width: 90%;
@@ -34,23 +37,26 @@ textarea, select {
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
+  color: white;
   border-radius: 4px;
   box-sizing: border-box;
   word-wrap: break-word;
   word-break: break-all;
   resize: none;
+  background-color: #3B3B3B;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
 
 .input_answer{
+  color: white;
+  background-color: #3B3B3B;
   width: 90%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  background-color: white;
   border-radius: 4px;
   box-sizing: border-box;
   overflow-wrap: break-word;
@@ -71,4 +77,12 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049;
+}
+
+.App_back{
+  background-color: white;
+}
+
+.score_ans{
+  color: white;
 }
