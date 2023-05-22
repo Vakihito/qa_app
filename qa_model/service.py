@@ -21,8 +21,21 @@ class TransformerPipelineRunner(bentoml.Runnable):
 
     @bentoml.Runnable.method(batchable=False, batch_dim=0)
     def predict(self, input):
-        answer = self.question_answerer(question=[input['question']], context=[input['context']])
-        return answer
+        contexts = input['context'].split('.')
+        questions = []
+        print(f"contexts {contexts}")
+        print(f"questions {questions}")
+        list_contexts = []
+        for cur_context in contexts:
+            if len(cur_context) > 0:
+                list_contexts.append(cur_context)
+                questions.append(input['question'])
+        
+        answers = self.question_answerer(question=questions, context=list_contexts)
+        print(f"[INFO] possible answers {answers}")
+        if isinstance(answers, dict):
+            return [answers]  
+        return answers
 
 model_runner = bentoml.Runner(TransformerPipelineRunner)
 svc = bentoml.Service("deberta_qa_model", runners=[model_runner])
@@ -31,9 +44,11 @@ svc = bentoml.Service("deberta_qa_model", runners=[model_runner])
 @svc.api(input=JSON(), output=JSON())
 def predict(input):
     """"""
-    print(f"[fdafsfa] {input}")
-    predictions = model_runner.predict.run(input)
-    response = {"answer" : predictions["answer"], "score" : predictions["score"]}
-    print(f"[response] {response}")
+    print(f"[INPUT] {input}")
     
-    return response
+    
+    predictions = model_runner.predict.run(input)
+    
+    print(f"[RESPONSE] {predictions}")
+    
+    return predictions

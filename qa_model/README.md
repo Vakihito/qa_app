@@ -16,7 +16,7 @@ bentoml serve service:svc --port=8000
 after serving the model just test in the `localhost:8000`
 ```
 {
-    "context":  "I'm sad because I have too much work",
-    "question": "why I'm sad ?"
+    "context":  "The interface of the app is good and very easy to navigate. Only problem is the drivers cancels the ride 8 out of 10 times I've used Uber. It is really frustrating when you are in a hurry. I think some actions should be put forward for the drivers as well to not cancel the request once accepted. In few instances, despite the driver canceling the ride, I had to pay the penalty fee. What I wrote is an honest opinion, after using Uber to book a ride for several months now.",
+    "question": "what is the problem with the drivers ?"
 }
 ```

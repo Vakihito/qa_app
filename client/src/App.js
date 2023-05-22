@@ -2,10 +2,9 @@ import './App.css';
 import React, { useState } from 'react';
 
 function App() {
-  const [question, setQuestion] = useState("why I'm sad ?");
-  const [context, setContext] = useState("I'm sad because I have to work with frontend ...");
-  const [answer, setAnswer] = useState('');
-  const [prob, setProb] = useState('');
+  const [question, setQuestion] = useState("what is the problem with the drivers ?");
+  const [context, setContext] = useState("The interface of the app is good and very easy to navigate. Only problem is the drivers cancels the ride 8 out of 10 times I've used Uber. It is really frustrating when you are in a hurry. I think some actions should be put forward for the drivers as well to not cancel the request once accepted. In few instances, despite the driver canceling the ride, I had to pay the penalty fee. What I wrote is an honest opinion, after using Uber to book a ride for several months now.");
+  const [answer, setAnswer] = useState([]);
 
 
   
@@ -20,10 +19,23 @@ function App() {
     })
     .then(response => response.json())
     .then(data => {
-      setAnswer(data['answer'])
-      setProb(data['score'])
+      setAnswer(data)
     })
   };
+
+  function AnswersList() {
+    return (
+      <>
+        <p className='label_text'>Answer List</p>
+        <br/>
+        <br/>
+        <br/>
+        <ul className='input_answer'>  
+        {answer.map((item) => ( <li key={item["answer"]}>{item["answer"]} - {item["score"]}</li>))}
+        </ul>
+      </>
+    );
+  }
 
   return (
     <div className="App">
@@ -46,13 +58,7 @@ function App() {
         <br />
         <input type="submit" value="Submit" />
       </form>
-        <p className='label_text' >Predicted Answer</p>
-      <br />
-      <div className='input_answer'>
-      <p  >{answer}</p>
-      </div>
-      <br />
-      <p  className='score_ans'>Score: {prob}</p>
+      <AnswersList />
     </div>
   );
 }

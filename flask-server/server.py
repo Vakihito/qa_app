@@ -15,9 +15,12 @@ def predict():
         "context" : request.json['context']
     } 
     response = requests.post("http://localhost:8000/predict", json=request.json)
-    print(f"outputing : {response.json()}")
+    response = response.json()
+    print(f"outputing : {response}")
+    sorted_response = sorted(response, key=lambda x: -x['score'])
+    print(f"outputing : {sorted_response}")
 
-    return response.json()
+    return sorted_response[:5]
 
 @app.route("/hey")
 def hey():
