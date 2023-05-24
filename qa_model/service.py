@@ -19,7 +19,7 @@ class TransformerPipelineRunner(bentoml.Runnable):
         self.model = AutoModelForQuestionAnswering.from_pretrained(MODEL_PATH) # loading the model
         self.tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)                # loading the tokenizer
         self.question_answerer = pipeline("question-answering", model=self.model, tokenizer=self.tokenizer)
-        self.encoder = SentenceTransformer("multi-qa-mpnet-base-dot-v1", device='cuda')
+        self.encoder = SentenceTransformer("multi-qa-mpnet-base-dot-v1", device='cpu')
 
 
     @bentoml.Runnable.method(batchable=False, batch_dim=0)

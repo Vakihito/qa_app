@@ -24,7 +24,7 @@ def predict():
     print(f"outputing : {response}")
     for cur_response in response:
         format_response(cur_response)
-    sorted_response = sorted(response, key=lambda x: -x['score_final'])
+    sorted_response = sorted(response, key=lambda x: -x['cossine_sim'])
     print(f"outputing : {sorted_response}")
 
     return sorted_response[:5]
