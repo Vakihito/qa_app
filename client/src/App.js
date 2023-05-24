@@ -30,9 +30,14 @@ function App() {
         <br/>
         <br/>
         <br/>
+        <div className='input_answer_full'>
         <ul className='input_answer'>  
-        {answer.map((item) => ( <li key={item["answer"]}>{item["answer"]} - {item["score"]}</li>))}
+        {answer.map((item) => ( <li key={item["answer"]}>{item["answer"]}</li>))}
         </ul>
+        <ul className='input_answer_score'>  
+        {answer.map((item) => ( <li key={item["answer"]}>{item["score"]} &emsp; {item["cossine_sim"]} &emsp; {item["score_final"]}</li>))}
+        </ul>
+        </div>
       </>
     );
   }

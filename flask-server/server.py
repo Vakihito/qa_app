@@ -4,6 +4,11 @@ import requests
 
 app = Flask(__name__)
 
+def format_response(cur_response):
+    cur_response['cossine_sim'] = round(cur_response['cossine_sim'], 4) 
+    cur_response['score'] = round(cur_response['score'], 4)
+    cur_response['score_final'] = ((cur_response['cossine_sim']) + (3 * cur_response['score'])) / 4
+    cur_response['score_final'] = round(cur_response['score_final'], 4)
 
 @app.route("/predict", methods=['POST'])
 def predict():
@@ -17,7 +22,9 @@ def predict():
     response = requests.post("http://localhost:8000/predict", json=request.json)
     response = response.json()
     print(f"outputing : {response}")
-    sorted_response = sorted(response, key=lambda x: -x['score'])
+    for cur_response in response:
+        format_response(cur_response)
+    sorted_response = sorted(response, key=lambda x: -x['score_final'])
     print(f"outputing : {sorted_response}")
 
     return sorted_response[:5]

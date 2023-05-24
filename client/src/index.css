@@ -52,13 +52,39 @@ textarea, select {
 .input_answer{
   color: white;
   background-color: #3B3B3B;
-  width: 90%;
+  width: 80%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  overflow-wrap: break-word;
+  height: 15vw;
+  text-align: left;
+}
+.input_answer_score{
+  color: white;
+  background-color: #3B3B3B;
+  width: 18%;
+  padding: 12px 20px;
+  margin-left: 1%;
+  margin-bottom: 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  height: 15vw;
+  text-align: left;
+}
+
+.input_answer_full{
+
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
   overflow-wrap: break-word;
   height: 15vw;
   text-align: left;
