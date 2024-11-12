@@ -20,5 +20,5 @@ Each folder is a different enviroment, wich means that each one has it's own dep
 
 ---
 ## Changing the QA model:
-Fownload from a qa model from this folder [models](https://drive.google.com/drive/folders/1R9WZDyQBQqHQYKkmHsN_yzSx0ZZSDFVz?usp=share_link)
+Download a qa model from this folder [models](https://drive.google.com/drive/folders/1R9WZDyQBQqHQYKkmHsN_yzSx0ZZSDFVz?usp=share_link)
 and unzip into the `qa_model/model` folder.
